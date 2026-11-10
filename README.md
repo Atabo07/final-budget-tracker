@@ -1,55 +1,56 @@
-# SpendWise
+# SpendWise – Personal Budget Tracker
 
-A simple budgeting app that lets you set a monthly budget, log expenses, and see instantly how you are doing. Built with HTML, CSS and JavaScript.
+## Project Title
+**SpendWise – Personal Budget Tracker**
 
-**How to run:** open `index.html` in a browser. No install needed.
+## Project Description
+SpendWise is a web-based personal budgeting application that helps users organise and monitor their money. Users can record income and expenses, manage savings goals, and view reports that help them understand their spending.
 
-## Improvements made this week
+The application includes a sidebar for navigating between the Dashboard, Expenses, Income, Savings, Reports, and Settings modules. It is built with HTML, CSS, and JavaScript. Records are stored in the browser using Local Storage, so they remain available in the same browser on the same device.
 
-- Added a budget form and an expense form that work without reloading the page.
-- Expenses are stored in an array instead of separate variables.
-- A live dashboard shows budget, total spent, remaining, and the biggest spending category.
-- A progress bar and a status message change with your spending.
-- Expenses can be deleted one at a time, filtered by category, or cleared all at once.
-- Large expenses (half the budget or more) are highlighted in red.
+## Technologies Used
+- **HTML5** – structures the application and its forms.
+- **CSS3** – styles the interface, sidebar, layout, and responsive design.
+- **JavaScript** – handles interactions, calculations, validation, and page updates.
+- **Browser Local Storage** – stores budgeting records in the user's browser.
+- **Git and GitHub** – track changes and host the project repository.
+- **Netlify** – deploys the website and makes it accessible online.
 
-## How conditionals are used
+## GitHub Repository Information
+- **Repository name:** `final-budget-tracker`
+- **GitHub repository:** https://github.com/Atabo07/final-budget-tracker
 
-- `getStatus()` uses `if / else if / else` to give feedback: over budget, 80% or more used (warning), no spending yet, or on track.
-- Form validation checks for an empty name or an amount that is not above 0, and shows an error message.
-- Inside the list loop, a conditional skips expenses that do not match the selected filter and flags large expenses.
-- An empty state message shows when there is nothing to display.
+## Live Netlify Website URL
+**Live website:** https://s-trackert.netlify.app
 
-## How arrays are used to store data
+## Deployment Process Summary
+1. Prepared the project files: `index.html`, `style.css`, and `script.js`.
+2. Tested the application locally in a web browser, including its navigation and budgeting modules.
+3. Initialised Git in the project folder if it was not already a Git repository.
+4. Added the GitHub repository as the remote named `origin`.
+5. Committed the project files and pushed them to GitHub.
+6. Signed in to Netlify and imported the GitHub repository.
+7. Configured the deployment settings. For a plain HTML, CSS, and JavaScript project, a build command is normally not required; the publish directory should be the folder containing `index.html` (often the repository root).
+8. Deployed the website to Netlify.
+9. Tested the published website at https://s-trackert.netlify.app to confirm that it loads and its navigation and features work.
 
-- `expenses` is an array of objects: `{ id, name, amount, category }`.
-- `push()` adds a new expense, `filter()` removes one by its `id`, and `expenses = []` clears everything.
-- `categories` is an array used to build the filter dropdown.
+## Challenges Encountered During Deployment
+Edit this section so it describes the challenges you actually experienced. Possible examples include:
 
-## How loops are used
+- **Incorrect publish directory:** Netlify may fail to find `index.html` if the publish directory is set incorrectly.
+- **Broken file paths:** CSS, JavaScript, or image files may not load if their paths or letter casing do not match.
+- **GitHub connection or push errors:** The remote URL, authentication, or branch settings may need to be checked.
+- **Live-site testing:** A feature that works locally may behave differently after deployment, so the published site must be tested.
 
-- A `for` loop in `getTotal()` adds up all amounts.
-- `for...of` loops build the category totals, the filter options, and the expense list on the page.
-- A `for...in` loop finds the category with the highest total.
+## Lessons Learned
+- How to organise a web project using HTML, CSS, and JavaScript.
+- How to use Git and GitHub to save and publish project changes.
+- How to connect a GitHub repository to Netlify.
+- How to deploy a static website and find its public URL.
+- Why correct file paths and publish-directory settings are important.
+- Why it is necessary to test a website after deployment.
+- How changes pushed to the connected GitHub repository can trigger automatic redeployment on Netlify.
 
-## How the DOM is updated
-
-- `render()` calls `renderDashboard()` and `renderList()` after every change.
-- Text is updated with `textContent`, the progress bar width and colour with `style`, and the status colour by changing a CSS class.
-- The list is rebuilt with `document.createElement()` and `appendChild()`, using `textContent` so user input is never treated as HTML.
-
-## How user interactions are handled through events
-
-- `submit` on the budget form and the expense form (with `preventDefault()` to stop the page reloading).
-- `click` on the list, using one listener for all Delete buttons (event delegation with `data-id`).
-- `change` on the category filter, and `click` on "Clear all expenses".
-
-Flow: user action -> event listener -> update the `expenses` array or `budget` -> `render()` -> the page shows the new result.
-
-## Challenges and how I solved them
-
-- **Page reloading on submit:** the form refreshed the page and wiped the data. Fixed with `e.preventDefault()`.
-- **Delete buttons for items created by JavaScript:** they did not exist when the page loaded, so I used event delegation on the parent `<ul>`.
-- **Deleting the right item:** using the array position broke after filtering, so each expense gets a unique `id`.
-- **Numbers as text:** input values are strings, so I convert with `Number()` before doing maths.
+## Author
+**Atabo**
 
